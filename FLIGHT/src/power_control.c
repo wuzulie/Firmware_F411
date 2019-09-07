@@ -1,5 +1,7 @@
 #include "power_control.h"
 #include "motors.h"
+#include "myconfig.h"
+
 
 /********************************************************************************	 
  * 本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -51,7 +53,7 @@ void powerControl(control_t *control)	/*功率输出控制*/
 {
 	s16 r = control->roll / 2.0f;
 	s16 p = control->pitch / 2.0f;
-	
+
 	motorPWM.m1 = limitThrust(control->thrust - r - p + control->yaw);
 	motorPWM.m2 = limitThrust(control->thrust - r + p - control->yaw);
 	motorPWM.m3 = limitThrust(control->thrust + r + p + control->yaw);

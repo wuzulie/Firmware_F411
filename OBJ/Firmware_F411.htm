@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\Firmware_F411.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\Firmware_F411.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Sep 04 19:33:33 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Sat Sep 07 18:45:56 2019
 <BR><P>
 <H3>Maximum Stack Usage =        728 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -416,6 +416,7 @@ Global Symbols
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
+<LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ctrlDataUpdate
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
@@ -437,6 +438,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;watchdogInit
 <LI><a href="#[2ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
 <LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
+<LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ctrlDataUpdate
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 </UL>
 
@@ -461,6 +463,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
 <LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
+<LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ctrlDataUpdate
 </UL>
 
 <P><STRONG><a name="[a2]"></a>__aeabi_ui2d</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, dfltui.o(.text))
@@ -469,6 +472,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;watchdogInit
+<LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ctrlDataUpdate
 </UL>
 
 <P><STRONG><a name="[a3]"></a>__aeabi_d2uiz</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, dfixui.o(.text))
@@ -477,23 +481,24 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;watchdogInit
+<LI><a href="#[232]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ctrlDataUpdate
 </UL>
 
 <P><STRONG><a name="[21a]"></a>__aeabi_f2d</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, f2d.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configParamInit
 <LI><a href="#[2ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spl0601_get_temperature
-<LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
 <LI><a href="#[1eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detecTumbled
 <LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detecFreeFall
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
 </UL>
 
 <P><STRONG><a name="[3b0]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cdcmple.o(.text), UNUSED)
 
 <P><STRONG><a name="[21b]"></a>__aeabi_cdcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
-<LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detecFreeFall
+<BR><BR>[Called By]<UL><LI><a href="#[1e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;detecFreeFall
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
 </UL>
 
 <P><STRONG><a name="[1e1]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, cdrcmple.o(.text))
@@ -3126,8 +3131,8 @@ Global Symbols
 <LI><a href="#[1d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 </UL>
 <BR>[Called By]<UL><LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rotateYawCarefree
-<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpf2pSetCutoffFreq
 <LI><a href="#[287]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imuTransformVectorBodyToEarth
+<LI><a href="#[299]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lpf2pSetCutoffFreq
 </UL>
 
 <P><STRONG><a name="[246]"></a>__hardfp_fabs</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fabs.o(i.__hardfp_fabs))
@@ -3377,8 +3382,8 @@ Global Symbols
 <P><STRONG><a name="[221]"></a>attitudeRatePID</STRONG> (Thumb, 114 bytes, Stack size 24 bytes, attitude_pid.o(i.attitudeRatePID))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = attitudeRatePID
 </UL>
-<BR>[Calls]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
-<LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidOutLimit
+<BR>[Calls]<UL><LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidOutLimit
+<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[341]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControl
 </UL>
@@ -3442,8 +3447,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[347]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemTest
 </UL>
 
-<P><STRONG><a name="[231]"></a>commanderGetSetpoint</STRONG> (Thumb, 900 bytes, Stack size 24 bytes, commander.o(i.commanderGetSetpoint))
-<BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = commanderGetSetpoint &rArr; rotateYawCarefree &rArr; __hardfp_sinf &rArr; __mathlib_rredf2
+<P><STRONG><a name="[231]"></a>commanderGetSetpoint</STRONG> (Thumb, 942 bytes, Stack size 24 bytes, commander.o(i.commanderGetSetpoint))
+<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = commanderGetSetpoint &rArr; ctrlDataUpdate &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrainf
 <LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOpDataState
@@ -3697,11 +3702,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1e6]"></a>getCommanderKeyFlight</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, commander.o(i.getCommanderKeyFlight))
-<BR><BR>[Called By]<UL><LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flyerFlipCheck
-<LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;anomalDetec
+<BR><BR>[Called By]<UL><LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;anomalDetec
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remoterCtrlProcess
 <LI><a href="#[2d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionEstimate
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flyerFlipCheck
 </UL>
 
 <P><STRONG><a name="[2da]"></a>getCommanderKeyland</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, commander.o(i.getCommanderKeyland))
@@ -4467,10 +4472,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[21f]"></a>pidReset</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, pid.o(i.pidReset))
-<BR><BR>[Called By]<UL><LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeResetAllPID
+<BR><BR>[Called By]<UL><LI><a href="#[2df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionResetAllPID
+<LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeResetAllPID
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControllerResetRollAttitudePID
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControllerResetPitchAttitudePID
-<LI><a href="#[2df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionResetAllPID
 </UL>
 
 <P><STRONG><a name="[21d]"></a>pidSetIntegralLimit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, pid.o(i.pidSetIntegralLimit))
@@ -4482,10 +4487,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[219]"></a>pidUpdate</STRONG> (Thumb, 264 bytes, Stack size 0 bytes, pid.o(i.pidUpdate))
-<BR><BR>[Called By]<UL><LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeRatePID
-<LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
-<LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionController
+<BR><BR>[Called By]<UL><LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionController
 <LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeRatePID
+<LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
 </UL>
 
 <P><STRONG><a name="[212]"></a>pmGetBatteryVoltage</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, pm.o(i.pmGetBatteryVoltage))
@@ -4538,8 +4543,8 @@ Global Symbols
 <P><STRONG><a name="[1fb]"></a>positionControlInit</STRONG> (Thumb, 248 bytes, Stack size 16 bytes, position_pid.o(i.positionControlInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = positionControlInit &rArr; pidInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidInit
-<LI><a href="#[2d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidSetOutputLimit
+<BR>[Calls]<UL><LI><a href="#[2d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidSetOutputLimit
+<LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atkpReceiveAnl
 <LI><a href="#[33f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControlInit
@@ -4548,8 +4553,8 @@ Global Symbols
 <P><STRONG><a name="[2d5]"></a>positionController</STRONG> (Thumb, 158 bytes, Stack size 32 bytes, position_pid.o(i.positionController))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = positionController &rArr; velocityController &rArr; __hardfp_fabs
 </UL>
-<BR>[Calls]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
-<LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<BR>[Calls]<UL><LI><a href="#[2d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;velocityController
+<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[341]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stateControl
 </UL>
@@ -4735,7 +4740,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.startTask)
 </UL>
-<P><STRONG><a name="[1fd]"></a>remoterCtrlProcess</STRONG> (Thumb, 248 bytes, Stack size 72 bytes, remoter_ctrl.o(i.remoterCtrlProcess))
+<P><STRONG><a name="[1fd]"></a>remoterCtrlProcess</STRONG> (Thumb, 342 bytes, Stack size 72 bytes, remoter_ctrl.o(i.remoterCtrlProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = remoterCtrlProcess &rArr; sendMsgACK &rArr; radiolinkSendPacketBlocking &rArr; xQueueGenericSend &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[25b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;expModulePower
@@ -5062,7 +5067,6 @@ Global Symbols
 <LI><a href="#[1e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommanderCtrlMode
 <LI><a href="#[2cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
 <LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOpFlowData
-<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flyerFlipCheck
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;anomalDetec
 <LI><a href="#[2d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getIsCalibrated
 <LI><a href="#[1f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledseqRun
@@ -5074,6 +5078,7 @@ Global Symbols
 <LI><a href="#[32b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sensorsAcquire
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imuUpdate
 <LI><a href="#[2e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;powerControl
+<LI><a href="#[261]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flyerFlipCheck
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.startTask)
 </UL>
@@ -5090,13 +5095,13 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = stateControl &rArr; configParamGiveSemaphore &rArr; xQueueGenericSend &rArr; prvUnlockQueue &rArr; prvNotifyQueueSetContainer &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;configParamGiveSemaphore
+<LI><a href="#[2df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionResetAllPID
+<LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionController
 <LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeResetAllPID
 <LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeRatePID
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControllerResetRollAttitudePID
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeControllerResetPitchAttitudePID
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;attitudeAnglePID
-<LI><a href="#[2df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionResetAllPID
-<LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stabilizerTask
 </UL>
@@ -7778,10 +7783,15 @@ Local Symbols
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commanderDropToGround
 </UL>
 
-<P><STRONG><a name="[232]"></a>ctrlDataUpdate</STRONG> (Thumb, 418 bytes, Stack size 32 bytes, commander.o(i.ctrlDataUpdate))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ctrlDataUpdate &rArr; getSysTickCnt
+<P><STRONG><a name="[232]"></a>ctrlDataUpdate</STRONG> (Thumb, 428 bytes, Stack size 64 bytes, commander.o(i.ctrlDataUpdate))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ctrlDataUpdate &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[241]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getSysTickCnt
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[230]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commanderLevelRPY
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commanderDropToGround
 <LI><a href="#[242]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -7789,7 +7799,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;commanderGetSetpoint
 </UL>
 
-<P><STRONG><a name="[237]"></a>rotateYawCarefree</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, commander.o(i.rotateYawCarefree))
+<P><STRONG><a name="[237]"></a>rotateYawCarefree</STRONG> (Thumb, 200 bytes, Stack size 32 bytes, commander.o(i.rotateYawCarefree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = rotateYawCarefree &rArr; __hardfp_sinf &rArr; __mathlib_rredf2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sinf
@@ -7886,10 +7896,10 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrainf
-<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
 <LI><a href="#[2da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommanderKeyland
 <LI><a href="#[1e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommanderKeyFlight
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pidUpdate
 <LI><a href="#[246]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_fabs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionController

@@ -171,10 +171,10 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4099</DriverSelection>
           </Flash1>
-          <bUseTDR>1</bUseTDR>
-          <Flash2>BIN\UL2CM3.DLL</Flash2>
+          <bUseTDR>0</bUseTDR>
+          <Flash2>Segger\JL2CM3.dll</Flash2>
           <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
@@ -365,7 +365,7 @@
               <MiscControls>--preinclude stm32f4xx_conf.h --diag_suppress=767</MiscControls>
               <Define>STM32F411xE,ARM_MATH_CM4,USE_STDPERIPH_DRIVER,USE_USB_OTG_FS</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\CONFIG\interface;..\HARDWARE\interface;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\USB\STM32_USB_Device_Library\Core\inc;..\USB\STM32_USB_Device_Library\Class\cdc\inc;..\USB\STM32_USB_OTG_Driver\inc;..\USB\USB_APP\interface;..\FLIGHT\interface;..\COMMON\interface;..\COMMUNICATE\interface;..\EXP_MODULES\interface;..\VL53L1X;..\VL53L1X\vl53l1_platform</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\FWLIB\inc;..\CONFIG\interface;..\HARDWARE\interface;..\FreeRTOS\include;..\FreeRTOS\portable\RVDS\ARM_CM4F;..\USB\STM32_USB_Device_Library\Core\inc;..\USB\STM32_USB_Device_Library\Class\cdc\inc;..\USB\STM32_USB_OTG_Driver\inc;..\USB\USB_APP\interface;..\FLIGHT\interface;..\COMMON\interface;..\COMMUNICATE\interface;..\EXP_MODULES\interface;..\VL53L1X;..\VL53L1X\vl53l1_platform;..\</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

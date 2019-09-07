@@ -10,6 +10,8 @@
 #include "position_pid.h"
 #include "module_mgt.h"
 #include "optical_flow.h"
+#include "myconfig.h"
+
 
 /*FreeRTOS相关头文件*/
 #include "FreeRTOS.h"
@@ -39,7 +41,7 @@ static bool isRCLocked;				/* 遥控锁定状态 */
 static ctrlValCache_t remoteCache;	/* 遥控缓存数据 */
 static ctrlValCache_t wifiCache;	/* wifi缓存数据 */
 static ctrlValCache_t* nowCache = &remoteCache;/*默认为遥控*/
-static ctrlVal_t ctrlValLpf = {0.f};/* 控制数据低通 */
+ ctrlVal_t ctrlValLpf = {0.f};/* 控制数据低通 */
 
 static float minAccZ = 0.f; 
 static float maxAccZ = 0.f; 
@@ -111,7 +113,7 @@ static void ctrlDataUpdate(void)
 //		ctrlValLpf.roll = ctrlVal.roll;
 //		ctrlValLpf.yaw = ctrlVal.yaw;
 		
-		ctrlValLpf.thrust += (ctrlVal.thrust - ctrlValLpf.thrust) * lpfVal;
+		ctrlValLpf.thrust += (ctrlVal.thrust - ctrlValLpf.thrust) * 0.5;
 		ctrlValLpf.pitch += (ctrlVal.pitch - ctrlValLpf.pitch) * lpfVal;
 		ctrlValLpf.roll += (ctrlVal.roll - ctrlValLpf.roll) * lpfVal;
 		ctrlValLpf.yaw += (ctrlVal.yaw - ctrlValLpf.yaw) * lpfVal;
@@ -143,6 +145,10 @@ static void rotateYawCarefree(setpoint_t *setpoint, const state_t *state)
 
 		setpoint->attitude.roll = originalRoll * cosy + originalPitch * siny;
 		setpoint->attitude.pitch = originalPitch * cosy - originalRoll * siny;
+
+		setpoint->attitude.roll+=row_compensation;
+		setpoint->attitude.pitch+=pitch_compensation;
+	
 	}
 	else if(setpoint->mode.x ==  modeVelocity || setpoint->mode.y ==  modeVelocity)	/*定点模式*/
 	{
@@ -230,9 +236,13 @@ static float errorPosY = 0.f;		/*Y位移误差*/
 static float errorPosZ = 0.f;		/*Z位移误差*/
 
 
+
 void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 {	
 	static float maxAccZ = 0.f;
+	static float row_k = 1.3f;
+	static float pitch_k = 1.4f;
+	static float yaw_k = 1.3f;
 	
 	ctrlDataUpdate();	/*更新控制数据*/
 	
@@ -318,9 +328,9 @@ void commanderGetSetpoint(setpoint_t *setpoint, state_t *state)
 		setpoint->thrust = ctrlValLpf.thrust;
 	}	
  	
-	setpoint->attitude.roll = ctrlValLpf.roll;
-	setpoint->attitude.pitch = ctrlValLpf.pitch;
-	setpoint->attitude.yaw  = -ctrlValLpf.yaw;	/*摇杆方向和yaw方向相反*/
+	setpoint->attitude.roll = ctrlValLpf.roll*row_k;
+	setpoint->attitude.pitch = ctrlValLpf.pitch*pitch_k;
+	setpoint->attitude.yaw  = -ctrlValLpf.yaw*yaw_k;	/*摇杆方向和yaw方向相反*/
 	
 	if(getOpDataState() && commander.ctrlMode == 0x03)	/*光流数据可用，定点模式*/ 
 	{

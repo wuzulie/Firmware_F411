@@ -70,6 +70,7 @@
 ..\obj\commander.o: ..\VL53L1X\vl53l1_platform\vl53l1_platform_log.h
 ..\obj\commander.o: ..\VL53L1X\vl53l1_platform\vl53l1_platform_user_data.h
 ..\obj\commander.o: ..\VL53L1X\vl53l1_def.h
+..\obj\commander.o: ..\myconfig.h
 ..\obj\commander.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\commander.o: ..\CONFIG\interface\FreeRTOSConfig.h
 ..\obj\commander.o: ..\COMMON\interface\debug_assert.h

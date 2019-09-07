@@ -76,6 +76,14 @@ void remoterCtrlProcess(atkp_t* pk)
 				{
 					setCommanderKeyFlight(true);
 					setCommanderKeyland(false);
+					remoterCtrl.roll = 0;
+					remoterCtrl.pitch = 0;
+					remoterCtrl.yaw = 0;
+					remoterCtrl.thrust = 0 * 655.35f;
+					remoterCtrl.trimPitch = 0;
+					remoterCtrl.trimRoll = 0;
+
+					flightCtrldataCache(ATK_REMOTER, remoterCtrl);
 				}
 				else
 				{

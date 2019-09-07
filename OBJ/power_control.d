@@ -38,3 +38,4 @@
 ..\obj\power_control.o: ..\CONFIG\interface\config.h
 ..\obj\power_control.o: ..\HARDWARE\interface\nvic.h
 ..\obj\power_control.o: D:\MDK_5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\power_control.o: ..\myconfig.h
