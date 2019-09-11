@@ -15,7 +15,9 @@
  * All rights reserved
 ********************************************************************************/
 
-#define PM_BAT_LOW_VOLTAGE   			3.35f
+#define PM_BAT_LOW_VOLTAGE_FLY   			3.00f
+#define PM_BAT_LOW_VOLTAGE_STATIC   		3.60f
+
 #define PM_BAT_LOW_TIMEOUT   			(1000 * 5) 	/* 5s */
 
 typedef enum

@@ -146,10 +146,21 @@ void pmTask(void *param)	/* 电源管理任务 */
 		vTaskDelay(100);
 		tickCount = getSysTickCnt();
 
-		if (pmGetBatteryVoltage() > PM_BAT_LOW_VOLTAGE)
+		if(getCommanderKeyFlight()==TRUE)
 		{
-			batteryLowTimeStamp = tickCount;
+			if (pmGetBatteryVoltage() > PM_BAT_LOW_VOLTAGE_FLY)
+			{
+				batteryLowTimeStamp = tickCount;
+			}
 		}
+		else if(getCommanderKeyFlight()==FALSE)
+		{
+			if (pmGetBatteryVoltage() > PM_BAT_LOW_VOLTAGE_STATIC)
+			{
+				batteryLowTimeStamp = tickCount;
+			}
+		}
+		
 
 		pmState = pmUpdateState();
 
